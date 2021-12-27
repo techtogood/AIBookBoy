@@ -1,9 +1,9 @@
-# 硬件配置和操作系统
+# 一、硬件配置和操作系统
 ```
 1）推荐配置：4核 16G 以上
 2）操作系统：ubuntu14.04以上
 ```
-# 部署算法后台（nginx模板）
+# 二、部署算法后台
 ## 安装部署mysql
 安装mysql:
 ```
@@ -160,7 +160,7 @@ mkdir -p /usr/local/nginx/logs
 
 
 
-# 绘本训练上线数据，进入PictureBookProcess目前
+# 三、绘本训练上线数据，进入PictureBookProcess目录
 
 ## 绘本训练上线原理：
 PictureBookProcess 是绘本数据训练上线程序，她做的事情是：
