@@ -2,17 +2,21 @@
 1）推荐配置：4核 16G 以上
 2）操作系统：ubuntu14.04以上
 
-#.部署算法后台（nginx模板）
+# 部署算法后台（nginx模板）
 ## 安装部署mysql
 安装mysql:
+```
 sudo apt-get install mysql-server
 sudo apt-get install libmysqlclient-dev
+```
 
 创建数据库：
+```
 create database picture_book;
+```
 
 创建表：
-
+```
 DROP TABLE IF EXISTS `cover`;
 CREATE TABLE `cover` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -42,16 +46,17 @@ CREATE TABLE `content` (
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='绘本内容表';
-
-
+```
 
 ##安装部署opencv
 安装依赖库：
+```
 sudo apt-get install build-essential
 sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
-
+```
 编译安装：
+```
 unzip opencv-3.2.0.zip
 unzip opencv_contrib-3.2.0.zip 
 cd opencv-3.2.0/
@@ -61,9 +66,10 @@ cd build/
 cmake -D CMAKE_BUILD_TYPE=Release -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.2.0/modules/ -D CMAKE_INSTALL_PREFIX=/usr/local .. 
 make 
 sudo make install
-
+```
 
 ##安装部署redis
+```
 安装redis
 sudo apt-get update
 sudo apt-get install redis-server
@@ -72,10 +78,10 @@ sudo apt-get install redis-server
 git clone  https://github.com/redis/hiredis.git
 make 
 make install
-
+```
 
 ##安装jsoncpp
-
+```
 tar -zvxf scons-2.1.0.tar.gz
 进入到scons解压目录下，执行：
 sudo python setup.py install
@@ -93,15 +99,17 @@ ln /lib/libjson_linux-gcc-4.4.7_libmt.so /lib/libjson.so
 mv include/json/ /usr/include/ 
 ldconfig 
 ./bin/linux-gcc-4.4.7/test_lib_json 
+```
 
 ##安装openssl
+```
 sudo apt-get install openssl 
 sudo apt-get install libssl-dev
-
+```
 
 6）安装部署nginx
 进入nginx目录
-
+```
 ./configure \
 --with-debug \ 
 --prefix=/usr/local/nginx \
@@ -129,22 +137,25 @@ server_name xxxx.yyyy.com; #xxxx.yyyy.com 替换为申请的域名
 购买HTTPS(ssl)证书，拷贝到/usr/local/nginx/conf/cert目录下，并更新到nginx.conf配置中：
 ssl_certificate   cert/215082401730553.pem;   #申请到对应SSL证书后替换此文件
 ssl_certificate_key  cert/215082401730553.key; #申请到对应SSL证书后替换此文件
-
+```
 
 
 
 ##后台部署完成，执行以下命令开启/停止服务：
+```
 开启：
 sudo /usr/local/nginx/sbin/nginx
 停止：
 sudo /usr/local/nginx/sbin/nginx -s stop
 重启：
 sudo /usr/local/nginx/sbin/nginx -s reopen
+```
 
 如出现相关文件缺少，创建
+```
 mkdir -p /var/temp/nginx 
 mkdir -p /usr/local/nginx/logs
-
+```
 
 
 
@@ -157,6 +168,7 @@ PictureBookProcess 是绘本数据训练上线程序，她做的事情是：
 
 
 ##文件目录预置：
+```
 1）创建以下文件夹：
 /home/xiaojuan/picture_book/data/scan/
 /home/xiaojuan/picture_book/data/cover/
@@ -165,8 +177,9 @@ PictureBookProcess 是绘本数据训练上线程序，她做的事情是：
 2)拷贝 K12英语三年级上册_9787107244674 文件到 /home/xiaojuan/picture_book/data/scan/目录中
 
 3)/home/xiaojuan/picture_book/data 路径在PictureBookProcess和server/src 都有hardcode代码里，如需修改，搜索代码修改；
-
+```
 ##修改代码配置：
+```
 1）PictureBookProcess中,main.cpp:
 配置阿里OSS的bucket名称和目录，xxxx是bucket名称，默认目录名是：picture_book
 const string OSSROOT = "https://xxxx.oss-cn-shanghai.aliyuncs.com/picture_book/";  //阿里OSS目录，xxx是bucket名称，默认目录名是：picture_book
@@ -183,10 +196,11 @@ define OSS_BUCKET "xxxx"  //bucket name
 define OSS_ENDPIONT "http://oss-cn-shanghai.aliyuncs.com" //oss endpoint
 define OSS_ID "xxxxxxxxxxxxxxxx"  //oss access id
 define OSS_SECRET "yyyyyyyyyyyyyyyy" //oss access secret
-
+```
 
 
 ##编译pictureBookProcess程序
+```
 1）编译安装阿里云OSS_C_SDK，详细参考以下github路径：
 https://github.com/aliyun/aliyun-oss-c-sdk
 
@@ -198,11 +212,11 @@ mkdir build
 cd build
 cmake ../
 make
-
+```
 
 
 ##绘本数据训练上线：
-
+```
 1）执行:pictureBookProcess/build/PictureBookProcess 程序；
 
 2）sudo /usr/local/nginx/sbin/nginx -l
@@ -215,5 +229,5 @@ make
 
 ##至此绘本后台部署完成并上线，根据nginx.conf的配置，提供的接口是：
 http://xxx.xxx.xxx.xxx/search_book ( 部署机器的ip)
-
+```
 
