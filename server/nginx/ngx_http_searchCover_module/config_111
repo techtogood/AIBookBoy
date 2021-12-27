@@ -1,0 +1,26 @@
+#仅在configure执行时使用，一般设置为模块名称    
+#ngx_addon_name=ngx_http_searchCover_module      
+#HTTP_MODULES保存所有的模块名称，在重设HTTP_MODULES时不能直接覆盖，而是先取得以前的HTTP_MODULES，在加上自己的模块    
+#HTTP_MODULES="$HTTP_MODULES ngx_http_searchCover_module"     
+#指定新增源代码文件   
+#NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_searchCover_module.c $ngx_addon_dir/Vocabulary.cpp $ngx_addon_dir/FindObject.cpp $ngx_addon_dir/settings.cpp"
+
+
+ngx_feature="ngx_http_searchCover_module"  
+ngx_feature_name=  
+ngx_feature_run=no  
+ngx_feature_incs=  
+ngx_feature_path="$ngx_addon_dir /usr/local/opencv/include/ /usr/local/opencv/include/opencv"   
+ngx_feature_libs="-L/usr/local/opencv/lib/ -L/usr/local/lib/ -L/usr/lib/x86_64-linux-gnu/"  
+ngx_feature_deps="$ngx_addon_dir/include/DetectionInfo.h $ngx_addon_dir/include/FeatureExtractor.h $ngx_addon_dir/include/FindObjectNode.h $ngx_addon_dir/include/KMeans_index.h $ngx_addon_dir/include/Setting.h $ngx_addon_dir/include/log.h $ngx_addon_dir/include/ObjSignature.h $ngx_addon_dir/include/ObjSignature.h $ngx_addon_dir/include/Vocabulary.h"  
+ngx_check_src="$ngx_addon_dir/ngx_http_searchCover_module.c $ngx_addon_dir/src/Vocabulary.cpp $ngx_addon_dir/src/FindObjectNode.cpp $ngx_addon_dir/src/Setting.cpp $ngx_addon_dir/src/FeatureExtractor.cpp $ngx_addon_dir/cpp_lib.cpp"
+ngx_feature_test="int a;"  
+. auto/feature  
+  
+ngx_addon_name=ngx_http_searchCover_module  
+HTTP_MODULES="$HTTP_MODULES ngx_http_searchCover_module"  
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_check_src"  
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_feature_deps"  
+CORE_DEPS="$CORE_DEPS $ngx_feature_deps"  
+CORE_INCS="$CORE_INCS $ngx_feature_path"  
+CORE_LIBS="$CORE_LIBS $ngx_feature_libs -lstdc++ -std=c++11 -lsqlite3 -lopencv_core -lopencv_highgui -lopencv_contrib -lopencv_flann -lopencv_imgproc -lopencv_calib3d -lopencv_xfeatures2d -lopencv_features2d -lopencv_imgcodecs -Wl,-E -lpthread -lcrypt -lz -lc -lrt -lm"  

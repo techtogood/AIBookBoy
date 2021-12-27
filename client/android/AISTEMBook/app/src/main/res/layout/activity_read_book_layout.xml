@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/read_book_expression"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/book_static_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:lines="1"
+        android:maxLength="25"
+        android:textColor="@color/base_white"
+        android:textSize="25sp"
+        android:visibility="gone" />
+
+    <com.aistem.xbot.book.view.MarqueeView
+        android:id="@+id/book_scoll_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:visibility="gone"
+        app:marqueeview_repet_type="repet_continuous"
+        app:marqueeview_text_color="@color/base_white"
+        app:marqueeview_text_size="25"
+        app:marqueeview_text_speed="1" />
+
+
+    <com.aistem.xbot.book.view.ColorArcProgressBar
+        android:id="@+id/id_download_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="150dp"
+        android:visibility="gone"
+        app:back_color="@android:color/darker_gray"
+        app:back_width="2dp"
+        app:front_color1="@color/colorBlue"
+        app:front_color2="@color/colorBlue"
+        app:front_color3="#989df7"
+        app:front_width="5dp"
+        app:is_need_content="true"
+        app:is_need_title="true"
+        app:is_need_unit="true"
+        app:max_value="100"
+        app:string_title=""
+        app:string_unit=""
+        app:total_engle="60" />
+
+</RelativeLayout>

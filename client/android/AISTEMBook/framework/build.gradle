@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 110
+        versionName "1.1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters  "armeabi-v7a"
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11", "-frtti", "-fexceptions"
+                abiFilters 'armeabi-v7a'
+                //arguments "-DANDROID_STL=gnustl_shared"
+            }
+        }
+    }
+    buildTypes {
+        debug{
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    allprojects {
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+            }
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.aar'], dir: 'libs')
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api 'com.alibaba:fastjson:1.2.47'
+    api 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    api 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    //    implementation 'org.litepal.android:core:1.6.1'
+    api 'org.litepal.android:java:3.0.0'
+    api 'com.koushikdutta.ion:ion:2.2.1'
+    api 'com.squareup.okhttp:okhttp:2.7.5'
+    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.luffykou:android-common-utils:1.1.3'
+    api 'com.squareup.okhttp:okhttp:2.7.5'
+    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.android.support:cardview-v7:27.1.1'
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api project(':openCVLibrary320')
+    api 'com.aliyun.dpa:oss-android-sdk:2.5.0'
+    api 'com.google.zxing:core:3.3.0'
+    api 'com.lzy.net:okgo:3.0.4'
+    api 'com.facebook.stetho:stetho:1.5.0'
+    api files('libs/AISpeech-SDK-for-Android-2.1.7-fix.jar')
+    api files('libs/unlike.jar')
+}

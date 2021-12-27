@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--语音文字提示开关-->
+    <!--护眼模式开关-->
+    <!--菜单语音播报开关-->
+    <!--系统音量-->
+
+    <!--MQTT-->
+    <!--<string name="mqtt_client_id">client1</string>>-->
+    <string name="mqtt_server_hostname">api.xbot.com</string>
+    <!--<string name="mqtt_server_hostname">192.168.51.112</string>-->
+    <integer name="mqtt_server_port">1883</integer>
+    <bool name="clean_session">true</bool>
+    <bool name = "tls_connect">false</bool>
+    <string name="mqtt_server_tls_key"></string>
+    <string name="mqtt_client_tls_key"></string>
+    <integer name="timeout">80</integer>
+    <integer name="keepalive">200</integer>
+    <string name="lwt_topic"></string>
+    <string name="lwt_message"> </string>
+    <integer name="lwt_qos">0</integer>
+    <bool name="lwt_retain">false</bool>
+
+
+    <!-- Strings that need formatting  -->
+    <string name="messageRecieved">Received message %1$s &lt;br/&gt; &lt;small&gt;Topic: %2$s &lt;/small&gt; </string>
+    <string name="timestamp">&lt;br/&gt; &lt;small&gt; %1$s &lt;/small&gt;</string>
+    <string name="toast_pub_success">Published message: %1$s to topic: %2$s</string>
+    <string name="toast_sub_success">Subscribed to %1$s</string>
+    <string name="toast_disconnected">Disconnected</string>
+    <string name="toast_pub_failed">Failed to publish message: %1$s to topic: %2$s</string>
+    <string name="toast_sub_failed">Failed to subscribe to %1$s</string>
+
+    <string name="connection_connected_to">Connected to</string>
+    <string name="connection_disconnected_from">Disconnected from</string>
+    <string name="connection_unknown_status">Unknown connection status to</string>
+    <string name="connection_connecting_to">Connecting to</string>
+    <string name="connection_disconnecting_from">Disconnecting from</string>
+    <string name="connection_error_connecting_to">An error occurred connecting to</string>
+</resources>

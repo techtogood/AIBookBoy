@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwitchButton">
+        <attr name="kswThumbDrawable" format="reference"/>
+        <attr name="kswThumbColor" format="color|reference"/>
+        <attr name="kswThumbMargin" format="dimension|reference"/>
+        <attr name="kswThumbMarginTop" format="dimension|reference"/>
+        <attr name="kswThumbMarginBottom" format="dimension|reference"/>
+        <attr name="kswThumbMarginLeft" format="dimension|reference"/>
+        <attr name="kswThumbMarginRight" format="dimension|reference"/>
+        <attr name="kswThumbWidth" format="dimension|reference"/>
+        <attr name="kswThumbHeight" format="dimension|reference"/>
+        <attr name="kswThumbRadius" format="dimension|reference"/>
+        <attr name="kswBackRadius" format="dimension|reference"/>
+        <attr name="kswBackDrawable" format="reference"/>
+        <attr name="kswBackColor" format="color|reference"/>
+        <attr name="kswFadeBack" format="boolean"/>
+        <attr name="kswBackMeasureRatio" format="float"/>
+        <attr name="kswAnimationDuration" format="integer"/>
+        <attr name="kswTintColor" format="color|reference"/>
+        <attr name="kswTextOn" format="string"/>
+        <attr name="kswTextOff" format="string"/>
+        <attr name="kswTextMarginH" format="dimension"/>
+        <attr name="kswAutoAdjustTextPosition" format="boolean"/>
+    </declare-styleable>
+
+    <!--CircleProgress-->
+    <declare-styleable name="CircleProgress">
+
+        <!--圆环的颜色-->
+        <attr name="ringColors" format="color"></attr>
+        <!--圆环的宽度-->
+        <attr name="ringSize" format="dimension"></attr>
+        <!--进度圆环的颜色-->
+        <attr name="ringprogressColor" format="color"></attr>
+
+        <!--圆环上的小圆点颜色-->
+        <attr name="dotColor" format="color"></attr>
+        <!--圆环上的小圆点大小-->
+        <attr name="dotSize" format="dimension"></attr>
+
+        <!--进度字体颜色-->
+        <attr name="textProgressColor" format="color"></attr>
+        <!--进度字体大小-->
+        <attr name="textProgressSize" format="dimension"></attr>
+
+
+        <!--百分号颜色-->
+        <attr name="textPercentColor" format="color"></attr>
+
+
+        <!--固定字体设置-->
+        <attr name="showProgressText" format="string"></attr>
+        <!--固定字体颜色-->
+        <attr name="texColor" format="color"></attr>
+        <!--固定字体大小-->
+        <attr name="texSize" format="dimension"></attr>
+
+        <!--文字之间的距离-->
+        <attr name="texMarginSize" format="dimension"></attr>
+
+        <!--固定字体大小-->
+        <attr name="setNumber" format="integer"></attr>
+
+
+    </declare-styleable>
+
+    <declare-styleable name="MarqueeView">
+
+        <attr name="marqueeview_repet_type" format="enum">
+            <enum name="repet_oncetime" value="0" /><!-- 播放一次 -->
+            <enum name="repet_interval" value="1" />  <!--连续播放 循环结束再继续下次循环-->
+            <enum name="repet_continuous" value="2" />  <!--连续播放 到末尾直接继续下次循环-->
+        </attr><!--循环模式-->
+
+        <attr name="marqueeview_text_distance" format="integer" /><!--每个item之间的距离-->
+        <attr name="marqueeview_text_startlocationdistance" format="float" /><!--开始的起始位置 按距离控件左边的百分比 0~1之间 -->
+
+        <attr name="marqueeview_text_speed" format="float" /><!--播放速度 也就是文字滚动速度-->
+        <attr name="marqueeview_text_color" format="color|reference" /><!-- 文字颜色 -->
+        <attr name="marqueeview_text_size" format="float" /><!-- 文字大小 -->
+
+        <attr name="marqueeview_isclickalbe_stop" format="boolean" /><!--是否点击暂停-->
+        <attr name="marqueeview_is_resetLocation" format="boolean" /><!--重新改变内容的时候 ， 是否初始化 位置，默认为true，改变-->
+    </declare-styleable>
+    <declare-styleable name="ColorArcProgressBar">
+        <attr name="back_color" format="color" />
+        <attr name="front_color1" format="color" />
+        <attr name="front_color2" format="color" />
+        <attr name="front_color3" format="color" />
+        <attr name="back_width" format="dimension" />
+        <attr name="front_width" format="dimension" />
+        <attr name="is_need_title" format="boolean" />
+        <attr name="is_need_content" format="boolean" />
+        <attr name="is_need_unit" format="boolean" />
+        <attr name="is_need_dial" format="boolean" />
+        <attr name="string_title" format="string" />
+        <attr name="string_unit" format="string" />
+        <attr name="total_engle" format="integer" />
+        <attr name="current_value" format="float" />
+        <attr name="max_value" format="float" />
+    </declare-styleable>
+
+</resources>
