@@ -16,8 +16,8 @@ AI书童是基于计算机视觉技术实现的儿童绘本伴读功能的项目
     ├── README.md  //server readme
     ├── conf   //nginx config file
     ├── libs   //server depends libs
-    ├── nginx  //nginx include  algorithm code
-    └── pictureBookProcess  //picturebook data trainning program 
+    ├── nginx  //nginx src code including  algorithm code
+    └── pictureBookProcess  //picturebook data trainning program
 
 
 ## 联系我们
