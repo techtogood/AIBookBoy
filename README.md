@@ -7,16 +7,17 @@ AI书童是基于计算机视觉技术实现的儿童绘本伴读功能的项目
 
 ## 代码目录说明
 ```
+.
 ├── client
-│   └── android
+│   └── android  //android client apk
 ├── docs
 │   └── wechat_official_account.jpg
 ├── README.md
-└── server
-    ├── conf
-    ├── libs
-    ├── nginx
-    ├── pictureBookProcess
+└── server   
+    ├── conf  //nginx config file
+    ├── libs  //depends librarys
+    ├── nginx  // nginx source code including algorithm code
+    ├── pictureBookProcess  //picture book data tranning tool
     └── README.md
 ```
 
