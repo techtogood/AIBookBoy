@@ -49,7 +49,7 @@ CREATE TABLE `content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='绘本内容表';
 ```
 
-##安装部署opencv
+## 安装部署opencv
 安装依赖库：
 ```
 sudo apt-get install build-essential
@@ -69,7 +69,7 @@ make
 sudo make install
 ```
 
-##安装部署redis
+## 安装部署redis
 ```
 安装redis
 sudo apt-get update
@@ -81,7 +81,7 @@ make
 make install
 ```
 
-##安装jsoncpp
+## 安装jsoncpp
 ```
 tar -zvxf scons-2.1.0.tar.gz
 进入到scons解压目录下，执行：
@@ -102,13 +102,13 @@ ldconfig
 ./bin/linux-gcc-4.4.7/test_lib_json 
 ```
 
-##安装openssl
+## 安装openssl
 ```
 sudo apt-get install openssl 
 sudo apt-get install libssl-dev
 ```
 
-6）安装部署nginx
+## 安装部署nginx
 进入nginx目录
 ```
 ./configure \
@@ -142,7 +142,7 @@ ssl_certificate_key  cert/215082401730553.key; #申请到对应SSL证书后替�
 
 
 
-##后台部署完成，执行以下命令开启/停止服务：
+## 后台部署完成，执行以下命令开启/停止服务：
 ```
 开启：
 sudo /usr/local/nginx/sbin/nginx
@@ -152,7 +152,7 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 sudo /usr/local/nginx/sbin/nginx -s reopen
 ```
 
-如出现相关文件缺少，创建
+## 如出现相关文件缺少，创建
 ```
 mkdir -p /var/temp/nginx 
 mkdir -p /usr/local/nginx/logs
@@ -160,15 +160,15 @@ mkdir -p /usr/local/nginx/logs
 
 
 
-#绘本训练上线数据，进入PictureBookProcess目前
+# 绘本训练上线数据，进入PictureBookProcess目前
 
-##绘本训练上线原理：
+## 绘本训练上线原理：
 PictureBookProcess 是绘本数据训练上线程序，她做的事情是：
 读取约定目录命名的绘本数据（图像、音频等）文件，进行图像信息训练生成图像字典文件（图典文件），
 并将图典文件、绘本音频上传到阿里OSS，并将数据和关系上传到cover 和  content两个mysql表中，完成上线。
 
 
-##文件目录预置：
+## 文件目录预置：
 ```
 1）创建以下文件夹：
 /home/xiaojuan/picture_book/data/scan/
@@ -179,7 +179,7 @@ PictureBookProcess 是绘本数据训练上线程序，她做的事情是：
 
 3)/home/xiaojuan/picture_book/data 路径在PictureBookProcess和server/src 都有hardcode代码里，如需修改，搜索代码修改；
 ```
-##修改代码配置：
+## 修改代码配置：
 ```
 1）PictureBookProcess中,main.cpp:
 配置阿里OSS的bucket名称和目录，xxxx是bucket名称，默认目录名是：picture_book
@@ -200,7 +200,7 @@ define OSS_SECRET "yyyyyyyyyyyyyyyy" //oss access secret
 ```
 
 
-##编译pictureBookProcess程序
+## 编译pictureBookProcess程序
 ```
 1）编译安装阿里云OSS_C_SDK，详细参考以下github路径：
 https://github.com/aliyun/aliyun-oss-c-sdk
@@ -216,7 +216,7 @@ make
 ```
 
 
-##绘本数据训练上线：
+## 绘本数据训练上线：
 ```
 1）执行:pictureBookProcess/build/PictureBookProcess 程序；
 
@@ -228,7 +228,7 @@ make
 3）执行 sudo /usr/local/nginx/sbin/nginx -s reopen
 
 
-##至此绘本后台部署完成并上线，根据nginx.conf的配置，提供的接口是：
+至此绘本后台部署完成并上线，根据nginx.conf的配置，提供的接口是：
 http://xxx.xxx.xxx.xxx/search_book ( 部署机器的ip)
 ```
 
